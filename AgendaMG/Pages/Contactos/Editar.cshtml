@@ -1,0 +1,74 @@
+﻿@page
+@model AgendaMG.Pages.Contactos.EditarModel
+@{
+    ViewData["Title"] = "Editar contacto";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class="text-info">Editar Contacto</h2>
+
+            <form method="post">
+
+                <input type="hidden" asp-for="ContactoVM.Contacto.Id" />
+
+                <div class="mb-3">
+                    <label asp-for="ContactoVM.Contacto.Nombre" class="form-label"></label>
+                    <input asp-for="ContactoVM.Contacto.Nombre" class="form-control" placeholder="Ingrese nombre" />
+                    <span asp-validation-for="ContactoVM.Contacto.Nombre" class="text-danger"></span>
+                </div>
+
+                  <div class="mb-3">
+                    <label asp-for="ContactoVM.Contacto.CorreoElectronico" class="form-label"></label>
+                    <input asp-for="ContactoVM.Contacto.CorreoElectronico" class="form-control" placeholder="Ingrese email" />
+                    <span asp-validation-for="ContactoVM.Contacto.CorreoElectronico" class="text-danger"></span>
+                </div>
+
+                  <div class="mb-3">
+                    <label asp-for="ContactoVM.Contacto.Telefono" class="form-label"></label>
+                    <input asp-for="ContactoVM.Contacto.Telefono" class="form-control" placeholder="Ingrese telefono" />
+                    <span asp-validation-for="ContactoVM.Contacto.Telefono" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ContactoVM.Contacto.Direccion" class="form-label"></label>
+                    <input asp-for="ContactoVM.Contacto.Direccion" class="form-control" placeholder="Ingrese telefono" />
+                    <span asp-validation-for="ContactoVM.Contacto.Direccion" class="text-danger"></span>
+                </div>
+
+                <!-- Categorias-->
+
+                <div class="mb-3">
+                    <label asp-for="ContactoVM.Contacto.Categoria" class="form-label"></label>
+
+                    <select asp-for="ContactoVM.Contacto.CategoriaId"
+                    asp-items="@(new SelectList(Model.ContactoVM.ListaCategorias, "Id","Nombre"))" class="form-control">
+
+                    </select>
+
+                </div>
+
+                  <div class="mb-3">
+                    <label asp-for="ContactoVM.Contacto.FechaCreacion" class="form-label"></label>
+                    <input asp-for="ContactoVM.Contacto.FechaCreacion" class="form-control" placeholder="Ingrese fecha de creación" />
+                    <span asp-validation-for="ContactoVM.Contacto.FechaCreacion" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-warning" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                      <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>  
+                    Editar Contacto</button>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <a asp-page="Index" class="btn btn-primary" >Volver</a>
+        </div>
+    </div>
+</div>
